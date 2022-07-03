@@ -1,0 +1,75 @@
+$subtitle-font-size : 1.2rem;
+
+p.subtitle{
+    font-family: "Trispace";
+    font-size: $subtitle-font-size;
+}
+h2.title{
+    font-family: "Trispace";
+    font-size: 4rem;
+    font-weight: 400;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+.typingBox {
+    position: relative;
+	&::after {
+    content: "|";
+    font-size: $subtitle-font-size;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    color: black;
+    background: white;
+    animation: typing 2s steps(40) forwards,
+      caret 1s infinite;
+  }
+}
+
+@media screen and (max-width: 504px) {
+    $subtitle-font-size : 0.9rem;
+    p.subtitle{
+        font-size: $subtitle-font-size;
+    }
+    .typingBox{
+        &::after{
+            font-size: $subtitle-font-size;
+        }
+    }
+    h2.title{
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    $subtitle-font-size : 0.88rem;
+    p.subtitle{
+        font-size: $subtitle-font-size;
+    }
+    .typingBox{
+        &::after{
+            font-size: $subtitle-font-size;
+        }
+    }
+    h2.title{
+        font-size: 3rem;
+    }
+}
+
+@keyframes fadeInDown{
+    0%{
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes typing {
+	to { width: 0 }
+}
+@keyframes caret {
+	50% { color: transparent }
+}

@@ -1,0 +1,125 @@
+$count: 0;
+
+.headerButton{
+    font-family: "Trispace";
+    color: white;
+}
+
+
+
+// .rainfall-1{
+//     font-family: "Trispace";
+//     background-color: red;
+//     animation: fallDown 0.6s cubic-bezier(0.3,0.045,0.355,1);
+//     animation-delay: 1s;
+// }
+
+@for $i from 0 through 3 {
+    
+    .rainfall-#{$i}{
+            content:"";
+            opacity: 1;
+            font-family: "Trispace";
+            transform: translateY(-40px);
+            // animation: fallDown 0.6s cubic-bezier(0.3,0.045,0.355,1);
+            // animation-delay: #{$i}s;
+            animation: fallDown 0.5s cubic-bezier(0.645,0.045,0.355,1) forwards;
+            // transform: translateY(0px);
+            animation-delay: #{$i/50}s ;
+
+        
+    }
+    
+}
+
+@for $i from 0 through 3 {
+    
+    .riseUp-#{$i}{
+            content:"";
+            opacity: 1;
+            font-family: "Trispace";
+            transform: translateY(0px);
+            // animation: fallDown 0.6s cubic-bezier(0.3,0.045,0.355,1);
+            // animation-delay: #{$i}s;
+            animation: riseUp 0.5s cubic-bezier(0.645,0.045,0.355,1) forwards;
+            // transform: translateY(0px);
+            animation-delay: #{$i/50}s ;
+
+        
+    }
+    
+}
+
+.logo-svg{
+    :hover{
+        cursor: pointer;
+    }
+}
+header.navBar-default{
+    background-color: black;
+}
+
+header.navBar-visible{
+    background-color: black;
+    animation: fadeToBlack 0.5s cubic-bezier(0.645,0.045,0.355,1) forwards;
+}
+
+header.navBar-hidden{
+    background-color: transparent;
+    animation: fadeToTransparent 0.5s cubic-bezier(0.645,0.045,0.355,1) forwards;
+}
+
+@keyframes fadeToBlack{
+    0%{
+        background-color: transparent;
+        // transform: translateY(-64px);
+    }
+    100%{
+        background-color: black;
+        // transform: translateY(0px);
+    }
+}
+
+@keyframes fadeToTransparent{
+    0%{
+        background-color: black;
+        // transform: translateY(0px);
+    }
+
+    100%{
+        background-color: transparent;
+        // transform: translateY(-64px);
+    }
+}
+
+
+
+
+
+@keyframes fallDown{
+    0%{
+        opacity: 0;
+        transform: translateY(-40px);
+        
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes riseUp{
+    0%{
+        opacity: 1;
+        transform: translateY(0px);
+        
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+}
+
+
+
+    

@@ -1,0 +1,33 @@
+.aboutMeContainer{
+    // width: 100vw;
+    min-height: 100vh;
+    // max-width: max-content;
+    // background-color: red;
+}
+
+h5.aboutMeTitle{
+    // background-color: burlywood;
+    font-weight: 700;
+    font-family: "Trispace";
+}
+
+.aboutBox{
+    max-width: 800px;
+    
+}
+
+p.aboutMeText{
+    // background-color: aqua;
+    font-family: "Trispace";
+    font-weight: 400;
+    padding-left: 3.45rem;
+}
+
+.skills-list{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(140px, 200px));
+    padding-left: 3.45rem;
+    gap: 0px 0px;
+    overflow: hidden;
+    list-style: none;
+}

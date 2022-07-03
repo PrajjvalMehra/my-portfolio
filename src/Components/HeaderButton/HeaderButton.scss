@@ -1,0 +1,22 @@
+button.headerButton{
+    color:white;
+    font-family: "Trispace";
+    margin-right: 10px;
+    margin-right: 10px;
+    
+}
+
+button.headerButton:hover{
+    background-color: white;
+    font-family: "Trispace";
+    color: black;
+    transform: translateY(1px);
+}
+
+@media screen and (max-width: 768px) {
+    button.headerButton{
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+}
+
