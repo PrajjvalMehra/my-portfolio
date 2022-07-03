@@ -7,6 +7,11 @@ import "./Sidebar.scss";
 const Sidebar = (props: any) => {
   const [open, setOpen] = useState(false);
   useLayoutEffect(() => {
+    if (props.showSidebar) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
     setOpen(props.showSidebar);
   }, [props.showSidebar]);
 

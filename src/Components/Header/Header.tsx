@@ -8,6 +8,7 @@ import { headerButtonData } from "../../Helpers/headerButtonData";
 import "./Header.scss";
 import { useOutsideAlerter } from "../../Hooks/useOutsideAlerter";
 import { useScrollDirection } from "../../Hooks/scrollDirection";
+import { debounce } from "lodash";
 interface Props {
   window?: () => Window;
   children: React.ReactElement;
@@ -27,7 +28,7 @@ const Header = (props: any) => {
     setShowSidebar(!showSidebar);
   };
 
-  console.log(useScrollDirection(setNavbarVisibility));
+  useScrollDirection(setNavbarVisibility);
   useOutsideAlerter(headerRef, setShowSidebar);
   useEffect(() => {
     if (showSidebar) return;
@@ -48,9 +49,39 @@ const Header = (props: any) => {
     }
   }, [navbarVisibility]);
 
-  console.log("headerStyle", headerStyleClasses);
+  const navBarMouseEnterHandler = debounce(() => {
+    if (headerStyleClasses.navBar === "navBar-visible") return;
+    console.log(showSidebar);
+    if (showSidebar) return;
+    console.log("SHOW");
+    setHeaderStyleClasses({
+      navButtons: "rainfall-",
+      navBar: "navBar-visible",
+    });
+  }, 50);
+
+  const navBarMouseLeaveHandler = () => {
+    navBarMouseEnterHandler.cancel();
+    if (showSidebar) return;
+    if (window.scrollY === 0 || navbarVisibility) return;
+    if (headerStyleClasses.navBar === "navBar-hidden") return;
+    console.log("HIDE");
+    setHeaderStyleClasses({
+      navButtons: "riseUp-",
+      navBar: "navBar-hidden",
+    });
+  };
+
   return (
-    <div ref={headerRef}>
+    <div
+      ref={headerRef}
+      onMouseOver={() => {
+        navBarMouseEnterHandler();
+      }}
+      onMouseLeave={() => {
+        navBarMouseLeaveHandler();
+      }}
+    >
       {/* <HideOnScroll {...props}> */}
       <AppBar elevation={0} className={headerStyleClasses.navBar}>
         <Toolbar
@@ -95,12 +126,16 @@ const Header = (props: any) => {
             )}
           </Box>
           <svg
-            onClick={() =>
+            onClick={() => {
               window.scrollTo({
                 top: 0,
                 behavior: "smooth",
-              })
-            }
+              });
+              setHeaderStyleClasses({
+                navButtons: "rainfall-",
+                navBar: "navBar-visible",
+              });
+            }}
             className="logo-svg"
             width="50"
             height="50"
