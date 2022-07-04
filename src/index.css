@@ -15,7 +15,7 @@ html,body{margin:0;padding:0;}
     width: 0px;
     height: 2px;
     background-color: black;
-    animation: dividerWidthAnimation 0.6s ease-in-out forwards;
+    animation: dividerWidthAnimation 0.5s ease-in-out forwards;
     /* animation-delay: 0.01s; */
 }
 
@@ -23,8 +23,8 @@ html,body{margin:0;padding:0;}
 .sectionText-Visible{
     opacity: 0;
     transform: translateY(0px);
-    animation: slideInFromTop 0.6s ease-in-out forwards;
-    animation-delay: 0.01s;
+    animation: slideInFromTop 0.5s ease-in-out forwards;
+    animation-delay: 0s;
 }
 
 .hidden-default{

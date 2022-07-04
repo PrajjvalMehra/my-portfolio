@@ -27,12 +27,7 @@ const About = (props: any) => {
         paddingLeft={1.5}
       >
         <Box ref={aboutRef} className="aboutBox">
-          <Typography
-            variant="h5"
-            className={`aboutMeTitle ${
-              isVisible ? "sectionTitle-VisibleL" : "hidden-default"
-            }`}
-          >
+          <Typography variant="h5" className="aboutMeTitle">
             <span style={{ fontWeight: 400 }}> 01.</span> About Me
             <div
               className={`${

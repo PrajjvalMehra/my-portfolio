@@ -29,48 +29,51 @@ const Header = (props: any) => {
   };
 
   useScrollDirection(setNavbarVisibility);
-  useOutsideAlerter(headerRef, setShowSidebar);
-  useEffect(() => {
-    if (showSidebar) return;
-    setHeaderStyleClasses({
-      navButtons: "",
-      navBar: "",
-    });
-    if (navbarVisibility) {
-      setHeaderStyleClasses({
-        navButtons: "rainfall-",
-        navBar: "navBar-visible",
-      });
-    } else {
-      setHeaderStyleClasses({
-        navButtons: "riseUp-",
-        navBar: "navBar-hidden",
-      });
-    }
-  }, [navbarVisibility]);
+ const isOutside = useOutsideAlerter(headerRef, setShowSidebar);
+ useEffect(() => {
+   if (showSidebar) return;
+   if (!isOutside) return;
+   setHeaderStyleClasses({
+     navButtons: "",
+     navBar: "",
+   });
+   if (navbarVisibility) {
+     setHeaderStyleClasses({
+       navButtons: "rainfall-",
+       navBar: "navBar-visible",
+     });
+   } else {
+     setHeaderStyleClasses({
+       navButtons: "riseUp-",
+       navBar: "navBar-hidden",
+     });
+   }
+ }, [navbarVisibility]);
 
-  const navBarMouseEnterHandler = debounce(() => {
-    if (headerStyleClasses.navBar === "navBar-visible") return;
-    console.log(showSidebar);
-    if (showSidebar) return;
-    console.log("SHOW");
-    setHeaderStyleClasses({
-      navButtons: "rainfall-",
-      navBar: "navBar-visible",
-    });
-  }, 50);
+ const navBarMouseEnterHandler = debounce(() => {
+   if (headerStyleClasses.navBar === "navBar-visible") return;
+   console.log(showSidebar);
+   if (showSidebar) return;
+   console.log("SHOW");
+   setHeaderStyleClasses({
+     navButtons: "rainfall-",
+     navBar: "navBar-visible",
+   });
+ }, 50);
 
-  const navBarMouseLeaveHandler = () => {
-    navBarMouseEnterHandler.cancel();
-    if (showSidebar) return;
-    if (window.scrollY === 0 || navbarVisibility) return;
-    if (headerStyleClasses.navBar === "navBar-hidden") return;
-    console.log("HIDE");
-    setHeaderStyleClasses({
-      navButtons: "riseUp-",
-      navBar: "navBar-hidden",
-    });
-  };
+ const navBarMouseLeaveHandler = () => {
+   navBarMouseEnterHandler.cancel();
+   if (showSidebar) return;
+   if (window.scrollY === 0 || navbarVisibility) return;
+   if (headerStyleClasses.navBar === "navBar-hidden") return;
+   console.log("HIDE");
+   setTimeout(() => {
+     setHeaderStyleClasses({
+       navButtons: "riseUp-",
+       navBar: "navBar-hidden",
+     });
+   }, 200);
+ };
 
   return (
     <div
