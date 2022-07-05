@@ -26,54 +26,72 @@ const Header = (props: any) => {
 
   const handleSidebar = () => {
     setShowSidebar(!showSidebar);
+    console.log("SIDEBAR", showSidebar)
   };
 
-  useScrollDirection(setNavbarVisibility);
- const isOutside = useOutsideAlerter(headerRef, setShowSidebar);
- useEffect(() => {
-   if (showSidebar) return;
-   if (!isOutside) return;
-   setHeaderStyleClasses({
-     navButtons: "",
-     navBar: "",
-   });
-   if (navbarVisibility) {
-     setHeaderStyleClasses({
-       navButtons: "rainfall-",
-       navBar: "navBar-visible",
-     });
-   } else {
-     setHeaderStyleClasses({
-       navButtons: "riseUp-",
-       navBar: "navBar-hidden",
-     });
-   }
- }, [navbarVisibility]);
+  const scrollDirection = useScrollDirection(setNavbarVisibility);
 
- const navBarMouseEnterHandler = debounce(() => {
-   if (headerStyleClasses.navBar === "navBar-visible") return;
-   console.log(showSidebar);
-   if (showSidebar) return;
-   console.log("SHOW");
-   setHeaderStyleClasses({
-     navButtons: "rainfall-",
-     navBar: "navBar-visible",
-   });
- }, 50);
 
- const navBarMouseLeaveHandler = () => {
-   navBarMouseEnterHandler.cancel();
-   if (showSidebar) return;
-   if (window.scrollY === 0 || navbarVisibility) return;
-   if (headerStyleClasses.navBar === "navBar-hidden") return;
-   console.log("HIDE");
-   setTimeout(() => {
-     setHeaderStyleClasses({
-       navButtons: "riseUp-",
-       navBar: "navBar-hidden",
-     });
-   }, 200);
- };
+  useEffect(() => {
+      if (scrollDirection === "down") {
+        setHeaderStyleClasses({
+          navButtons: "navButtons-hidden",
+          navBar: "navBar-hidden",
+        });
+      }
+      if(scrollDirection === "up") {
+        setHeaderStyleClasses({
+          navButtons: "navButtons-visible",
+          navBar: "navBar-visible",
+        });
+      }
+  }, [scrollDirection]);
+  // console.log("SCROLL DIRECTION", typeof scrollDirection)
+  const isOutside = useOutsideAlerter(headerRef, setShowSidebar);
+  useEffect(() => {
+    if (showSidebar) return;
+    if (!isOutside) return;
+    setHeaderStyleClasses({
+      navButtons: "",
+      navBar: "",
+    });
+    if (navbarVisibility) {
+      setHeaderStyleClasses({
+        navButtons: "rainfall-",
+        navBar: "navBar-visible",
+      });
+    } else {
+      setHeaderStyleClasses({
+        navButtons: "riseUp-",
+        navBar: "navBar-hidden",
+      });
+    }
+  }, [navbarVisibility]);
+
+  const navBarMouseEnterHandler = debounce(() => {
+    if (headerStyleClasses.navBar === "navBar-visible") return;
+    console.log(showSidebar);
+    if (showSidebar) return;
+    console.log("SHOW");
+    setHeaderStyleClasses({
+      navButtons: "rainfall-",
+      navBar: "navBar-visible",
+    });
+  }, 50);
+
+  const navBarMouseLeaveHandler = () => {
+    navBarMouseEnterHandler.cancel();
+    if (showSidebar) return;
+    if (window.scrollY === 0 || navbarVisibility) return;
+    if (headerStyleClasses.navBar === "navBar-hidden") return;
+    console.log("HIDE");
+    setTimeout(() => {
+      setHeaderStyleClasses({
+        navButtons: "riseUp-",
+        navBar: "navBar-hidden",
+      });
+    }, 200);
+  };
 
   return (
     <div
@@ -182,6 +200,6 @@ const Header = (props: any) => {
       />
     </div>
   );
-};
+};;
 
 export default Header;

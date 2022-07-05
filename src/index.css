@@ -1,6 +1,12 @@
 html,body{margin:0;padding:0;}
 
-::-webkit-scrollbar {display:none;}
+/* ::-webkit-scrollbar {display:none;} */
+
+
+h5.sectionTitleStyle{
+    font-weight: 700;
+    font-family: "Trispace";
+}
 
 
 .sectionTitle-VisibleL{
@@ -16,7 +22,7 @@ html,body{margin:0;padding:0;}
     height: 2px;
     background-color: black;
     animation: dividerWidthAnimation 0.5s ease-in-out forwards;
-    /* animation-delay: 0.01s; */
+    animation-delay: 0.01s;
 }
 
 
@@ -24,11 +30,12 @@ html,body{margin:0;padding:0;}
     opacity: 0;
     transform: translateY(0px);
     animation: slideInFromTop 0.5s ease-in-out forwards;
-    animation-delay: 0s;
+    animation-delay: 0.01s;
 }
 
 .hidden-default{
     opacity: 0;
+    display: none;
 }
 
 
@@ -39,7 +46,7 @@ html,body{margin:0;padding:0;}
     }
     100%{
         opacity: 1;
-        width: 38.5px;
+        width: 2.4rem;
     }
 }
 
@@ -76,3 +83,22 @@ html,body{margin:0;padding:0;}
         transform: translateX(0px);
     }
 }
+
+@media screen and (max-width: 768px){
+    h5.sectionTitleStyle{
+        font-family: "Trispace";
+    font-weight: 700;
+    font-size: 1.28rem;
+    }
+    @keyframes dividerWidthAnimation{
+    0%{
+        width: 0px;
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        width: 2rem;
+    }
+}
+}
+    

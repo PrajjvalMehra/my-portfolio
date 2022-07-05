@@ -1,12 +1,41 @@
-import { Box, Grid } from "@mui/material";
+import {
+  Box,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  Chip,
+  Grid,
+  Icon,
+  IconButton,
+  Slide,
+  Typography,
+} from "@mui/material";
+
 import React, { useEffect, useRef } from "react";
+import { projects } from "../../Helpers/projects";
+
+import IsComponentVisible from "../../Hooks/IsComponentVisible";
 import "./Work.scss";
+import scrollIntoViewOffset from "../../Helpers/scrollIntoViewOffset";
+import WorkCard from "../../Components/WorkCard/WorkCard";
 const Work = (props: any) => {
   const workRef = useRef<null | HTMLElement>(null);
+  const isVisible = IsComponentVisible(workRef);
 
   useEffect(() => {
     if (props.activeSection !== "work") return;
-    workRef?.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    // workRef?.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    // window.scrollBy({
+    //   behavior: "smooth",
+    //   top: 1000,
+    // });
+    if (window.innerHeight > 800 && projects.length <= 3) {
+      workRef?.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    } else {
+      scrollIntoViewOffset(".workBox", 70);
+    }
+
     props.handleActiveSection("");
   }, [props.activeSection]);
 
@@ -22,7 +51,21 @@ const Work = (props: any) => {
         paddingRight={1.5}
         paddingLeft={1.5}
       >
-        <Box ref={workRef}>Work</Box>
+        <Box ref={workRef} className="workBox">
+          <Typography variant="h5" className="sectionTitleStyle">
+            <span style={{ fontWeight: 400 }}> 03.</span> Some Things I've Built
+            <div
+              className={`${
+                isVisible ? "sectionDividerAnimation" : "hidden-default"
+              }`}
+            />
+          </Typography>
+          <Box className="workGrid" sx={{ fontFamily: "Trispace" }}>
+            {projects.map((project: any, index: number) => {
+              return <WorkCard project={project} index={index} />;
+            })}
+          </Box>
+        </Box>
       </Grid>
     </>
   );
