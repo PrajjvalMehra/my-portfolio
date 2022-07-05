@@ -1,4 +1,22 @@
 .experienceContainer{
     // width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+}
+.expBox{
+    max-width: 1000px;
+    // min-height: 100vh;
+}
+div.expDescription{
+    height: 224;
+    margin-top: 5px ;
+    color: black;
+}
+button.TabStyle{
+    // text-decoration-color: black;
+    // color: black;
+    width: fit-content;
+    font-family: "Trispace";
+    padding-left: 0;
+    padding:0;
+    margin-right: 50px;
 }

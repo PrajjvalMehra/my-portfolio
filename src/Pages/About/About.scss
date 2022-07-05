@@ -13,11 +13,19 @@ h5.aboutMeTitle{
 
 .aboutBox{
     max-width: 800px;
+    min-height: min-content;
+    display: flex;
+    flex-direction: column;
     
 }
+div.description{
+    margin-top: 3px;
+    display: flex;
+    flex-direction: column;
+}
+
 
 p.aboutMeText{
-    // background-color: aqua;
     font-family: "Trispace";
     font-weight: 400;
     padding-left: 3.45rem;
@@ -31,3 +39,21 @@ p.aboutMeText{
     overflow: hidden;
     list-style: none;
 }
+
+@media screen and (max-width: 768px){
+    p.aboutMeText{
+    font-family: "Trispace";
+    font-weight: 400;
+    padding-left: 0;
+}
+.skills-list{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(140px, 200px));
+    padding-left: 0rem;
+    gap: 0px 0px;
+    overflow: hidden;
+    list-style: none;
+}
+
+}
+    

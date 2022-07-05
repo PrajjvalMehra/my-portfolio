@@ -1,4 +1,52 @@
 .contactContainer{
     // width: 100vw;
+    font-family: "Trispace";
     height: 100vh;
 }
+
+div.contactDescription{
+    margin-left: 3.45rem;
+    height: 224;
+    margin-top: 5px ;
+    color: black;
+}
+
+div.hello-btn{
+    // background-color: black;
+    margin-top: 10px;
+    border: 2px black solid;
+    width: max-content;
+    border-radius: 5px;
+    padding: 5px;
+    
+}
+
+div.hello-btn:hover{
+    background-color: black;
+    
+    cursor: pointer;
+    transition: all 0.1s ease-in-out ;
+    color: white;
+}
+
+div.social-container{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    // justify-content: space-evenly;
+    // align-items: center;
+}
+
+svg.social-icon{
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+svg.social-icon:hover{
+    cursor: pointer;
+    transition: all 0.1s ease-in-out ;
+    transform: translateY(-3px);
+}
+
+

@@ -1,0 +1,49 @@
+div.panelDataContainer{
+    opacity: 0;
+    padding: 7px;
+    max-width: max-content;
+    font-family: "Trispace";
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.companyStyle{
+    font-weight: 600;
+    background-color:  black;
+    color: white;
+    padding: 3px;
+    border-radius: 5px;
+    
+}
+.companyStyle:hover{
+    cursor: pointer;
+}
+@media screen and (max-width: 768px){
+    h6.designation{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 1rem;
+        font-weight: 800;
+    }
+}
+    
+
+
+@media screen and (max-width: 1000px){
+    div.panelDataContainer{
+        padding:0px;
+        max-width: max-content;
+        font-family: "Trispace";
+        animation: fadeIn 0.8s ease-in-out forwards;
+    }
+}
+    
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

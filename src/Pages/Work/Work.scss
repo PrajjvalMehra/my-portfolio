@@ -1,4 +1,46 @@
 .workContainer{
     // width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    max-height: fit-content;
 }
+.workBox{
+      max-width: 1000px;
+    min-height: min-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.workGrid{
+    display: flex;
+    justify-content: start;
+    flex-grow: 3;
+    flex-wrap: wrap;
+}
+
+div.cardTitle{
+    font-weight: 500;
+    font-family: "Trispace";
+    margin-top: 15px;
+}
+
+
+.gitHoverAnimation:hover{
+    transform:  scale(1.1);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+h5.workSectionTitle{
+    font-family: "Trispace";
+    font-weight: 700;
+}
+
+@media screen and (max-width: 668px){
+    .workGrid{
+        display: flex;
+    justify-content: center;
+    flex-grow: 3;
+    flex-wrap: wrap;
+    }
+}   
+
+    
