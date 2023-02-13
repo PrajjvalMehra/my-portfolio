@@ -11,54 +11,54 @@ import Work from "../Work/Work";
 import "./Home.scss";
 
 const Home = () => {
-  const topRef = useRef<null | HTMLElement>(null);
-  const [currentSection, setCurrentSection] = useState("");
-  const handleActiveSection = (section: string) => {
-    setCurrentSection(section);
-  };
+    const topRef = useRef<null | HTMLElement>(null);
+    const [currentSection, setCurrentSection] = useState("");
+    const handleActiveSection = (section: string) => {
+        setCurrentSection(section);
+    };
 
-  console.log(currentSection);
-  return (
-    <>
-      <Box>
-        <Box ref={topRef} className="headerContainer">
-          <Header handleActiveSection={handleActiveSection} />
-        </Box>
+    console.log(currentSection);
+    return (
+        <>
+            <Box className="mainContainer">
+                <Box ref={topRef} className="headerContainer">
+                    <Header handleActiveSection={handleActiveSection} />
+                </Box>
 
-        <Grid
-          className="main"
-          direction="row"
-          alignItems="center"
-          justifyContent="center"
-          alignContent="center"
-          paddingRight={0}
-          paddingLeft={0}
-        >
-          <Box>
-            <Title handleActiveSection={handleActiveSection} />
-          </Box>
-          <Box sx={{ display: "flex", flexDirection: "column" }}>
-            <About
-              activeSection={currentSection}
-              handleActiveSection={handleActiveSection}
-            />
-            <Experience
-              activeSection={currentSection}
-              handleActiveSection={handleActiveSection}
-            />
-            <Work
-              activeSection={currentSection}
-              handleActiveSection={handleActiveSection}
-            />
-            <Contact
-              activeSection={currentSection}
-              handleActiveSection={handleActiveSection}
-            />
-            <Footer />
-          </Box>
-        </Grid>
+                <Grid
+                    className="main"
+                    direction="row"
+                    alignItems="center"
+                    justifyContent="center"
+                    alignContent="center"
+                    paddingRight={0}
+                    paddingLeft={0}
+                >
+                    <Box>
+                        <Title handleActiveSection={handleActiveSection} />
+                    </Box>
+                    <Box sx={{ display: "flex", flexDirection: "column" }}>
+                        <About
+                            activeSection={currentSection}
+                            handleActiveSection={handleActiveSection}
+                        />
+                        <Experience
+                            activeSection={currentSection}
+                            handleActiveSection={handleActiveSection}
+                        />
+                        <Work
+                            activeSection={currentSection}
+                            handleActiveSection={handleActiveSection}
+                        />
+                        <Contact
+                            activeSection={currentSection}
+                            handleActiveSection={handleActiveSection}
+                        />
+                        <Footer />
+                    </Box>
+                </Grid>
 
-        {/* <Box
+                {/* <Box
           sx={{
             bottom: 0,
             left: 0,
@@ -69,10 +69,10 @@ const Home = () => {
           }}
         > */}
 
-        {/* </Box> */}
-      </Box>
-    </>
-  );
+                {/* </Box> */}
+            </Box>
+        </>
+    );
 };
 
 export default Home;

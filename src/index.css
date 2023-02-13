@@ -1,22 +1,27 @@
-html,body{margin:0;padding:0;}
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
 
 /* ::-webkit-scrollbar {display:none;} */
 
 
-h5.sectionTitleStyle{
+h5.sectionTitleStyle {
     font-weight: 700;
     font-family: "Trispace";
 }
 
 
-.sectionTitle-VisibleL{
+.sectionTitle-VisibleL {
     opacity: 0;
     transform: translateX(0px);
-    animation: slideInFromLeft 0.5s cubic-bezier(0.645,0.045,0.355,1) forwards;
+    animation: slideInFromLeft 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
     /* animation-delay: 0.01s; */
 }
 
-.sectionDividerAnimation{
+.sectionDividerAnimation {
     /* opacity: 0; */
     width: 0px;
     height: 2px;
@@ -26,37 +31,39 @@ h5.sectionTitleStyle{
 }
 
 
-.sectionText-Visible{
+.sectionText-Visible {
     opacity: 0;
     transform: translateY(0px);
     animation: slideInFromTop 0.5s ease-in-out forwards;
     animation-delay: 0.01s;
 }
 
-.hidden-default{
+.hidden-default {
     opacity: 0;
     display: none;
 }
 
 
-@keyframes dividerWidthAnimation{
-    0%{
+@keyframes dividerWidthAnimation {
+    0% {
         width: 0px;
         opacity: 0;
     }
-    100%{
+
+    100% {
         opacity: 1;
         width: 2.4rem;
     }
 }
 
 
-@keyframes slideInFromTop{
-    0%{
+@keyframes slideInFromTop {
+    0% {
         opacity: 0;
         transform: translateY(-10%);
     }
-    100%{
+
+    100% {
         opacity: 1;
         transform: translateY(0px);
     }
@@ -67,6 +74,7 @@ h5.sectionTitleStyle{
         transform: translateX(-3%);
         opacity: 0;
     }
+
     100% {
         opacity: 1;
         transform: translateX(0px);
@@ -78,27 +86,29 @@ h5.sectionTitleStyle{
         transform: translateX(10%);
         opacity: 0;
     }
+
     100% {
         opacity: 1;
         transform: translateX(0px);
     }
 }
 
-@media screen and (max-width: 768px){
-    h5.sectionTitleStyle{
+@media screen and (max-width: 768px) {
+    h5.sectionTitleStyle {
         font-family: "Trispace";
-    font-weight: 700;
-    font-size: 1.28rem;
+        font-weight: 700;
+        font-size: 1.28rem;
     }
-    @keyframes dividerWidthAnimation{
-    0%{
-        width: 0px;
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-        width: 2rem;
+
+    @keyframes dividerWidthAnimation {
+        0% {
+            width: 0px;
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            width: 2rem;
+        }
     }
 }
-}
-    
