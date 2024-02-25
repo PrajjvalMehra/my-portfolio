@@ -25,11 +25,6 @@ const Work = (props: any) => {
 
   useEffect(() => {
     if (props.activeSection !== "work") return;
-    // workRef?.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-    // window.scrollBy({
-    //   behavior: "smooth",
-    //   top: 1000,
-    // });
     if (window.innerHeight > 800 && projects.length <= 3) {
       workRef?.current?.scrollIntoView({ behavior: "smooth", block: "center" });
     } else {

@@ -50,12 +50,20 @@ const WorkCard = (props: any) => {
                             justifyContent: "space-between",
                         }}
                     >
-                        <FolderOpenIcon
-                            sx={{
-                                width: "35px",
-                                height: "auto",
-                            }}
-                        />
+                        {props.project.icon ? (
+                            <img
+                                src={props.project.icon}
+                                alt="icon"
+                                style={{ width: "40px", height: "40px" }}
+                            />
+                        ) : (
+                            <FolderOpenIcon
+                                sx={{
+                                    width: "35px",
+                                    height: "35px",
+                                }}
+                            />
+                        )}
                         <GitHubIcon
                             className="gitHoverAnimation"
                             onClick={() => {

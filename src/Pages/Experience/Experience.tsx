@@ -1,4 +1,4 @@
-import { Grid, Slide, Tab, Tabs, Typography } from "@mui/material";
+import { Grid, Tab, Tabs, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect, useRef, useState } from "react";
 import TabPanel from "../../Components/TabPanel/TabPanel";
@@ -31,7 +31,7 @@ const Experience = (props: any) => {
         }
 
         props.handleActiveSection("");
-    }, [props.activeSection]);
+    }, [props]);
 
     function a11yProps(index: number) {
         return {
