@@ -17,7 +17,7 @@ const Home = () => {
         setCurrentSection(section);
     };
 
-    console.log(currentSection);
+  
     return (
         <>
             <Box className="mainContainer">
@@ -28,9 +28,6 @@ const Home = () => {
                 <Grid
                     className="main"
                     direction="row"
-                    alignItems="center"
-                    justifyContent="center"
-                    alignContent="center"
                     paddingRight={0}
                     paddingLeft={0}
                 >
@@ -57,19 +54,6 @@ const Home = () => {
                         <Footer />
                     </Box>
                 </Grid>
-
-                {/* <Box
-          sx={{
-            bottom: 0,
-            left: 0,
-            right: 0,
-            top: "100%",
-            width: "100%",
-            position: "sticky",
-          }}
-        > */}
-
-                {/* </Box> */}
             </Box>
         </>
     );

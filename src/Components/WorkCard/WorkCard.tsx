@@ -16,7 +16,6 @@ import "./WorkCard.scss";
 const WorkCard = (props: any) => {
     const ref = React.useRef<null | HTMLDivElement>(null);
     const cardVisibility = IsComponentVisible(ref);
-    console.log(props);
     return (
         <div ref={ref}>
             <Card

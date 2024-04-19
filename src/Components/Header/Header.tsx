@@ -26,7 +26,6 @@ const Header = (props: any) => {
 
   const handleSidebar = () => {
     setShowSidebar(!showSidebar);
-    console.log("SIDEBAR", showSidebar)
   };
 
   const scrollDirection = useScrollDirection(setNavbarVisibility);
@@ -46,7 +45,6 @@ const Header = (props: any) => {
         });
       }
   }, [scrollDirection]);
-  // console.log("SCROLL DIRECTION", typeof scrollDirection)
   const isOutside = useOutsideAlerter(headerRef, setShowSidebar);
   useEffect(() => {
     if (showSidebar) return;
@@ -70,9 +68,7 @@ const Header = (props: any) => {
 
   const navBarMouseEnterHandler = debounce(() => {
     if (headerStyleClasses.navBar === "navBar-visible") return;
-    console.log(showSidebar);
     if (showSidebar) return;
-    console.log("SHOW");
     setHeaderStyleClasses({
       navButtons: "rainfall-",
       navBar: "navBar-visible",
@@ -84,7 +80,6 @@ const Header = (props: any) => {
     if (showSidebar) return;
     if (window.scrollY === 0 || navbarVisibility) return;
     if (headerStyleClasses.navBar === "navBar-hidden") return;
-    console.log("HIDE");
     setTimeout(() => {
       setHeaderStyleClasses({
         navButtons: "riseUp-",

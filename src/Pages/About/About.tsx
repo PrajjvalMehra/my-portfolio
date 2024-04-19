@@ -7,9 +7,7 @@ import "./About.scss";
 const About = (props: any) => {
     const aboutRef = useRef<null | HTMLElement>(null);
     const isVisible = isComponentVisible(aboutRef);
-    useEffect(() => {}, []);
 
-    console.log("VISIBILITY", isVisible);
     useEffect(() => {
         if (props.activeSection !== "about") return;
         aboutRef?.current?.scrollIntoView({
@@ -17,7 +15,7 @@ const About = (props: any) => {
             block: "center",
         });
         props.handleActiveSection("");
-    }, [props.activeSection]);
+    }, [props.activeSection, props]);
 
     return (
         <Grid
