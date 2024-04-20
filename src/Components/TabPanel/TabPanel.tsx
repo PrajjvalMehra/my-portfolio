@@ -31,7 +31,7 @@ const TabPanel = (props: TabPanelProps) => {
             <span
               className="companyStyle"
               onClick={() => {
-                window.open("https://intelligaia.com/", "_blank");
+                window.open(data.companyLink, "_blank");
               }}
             >
               @{data.company}

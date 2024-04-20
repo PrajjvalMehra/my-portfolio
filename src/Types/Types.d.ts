@@ -8,6 +8,7 @@ interface TabPanelProps {
     date: string;
     description: string[];
     techStack: string[];
+    companyLink: string;
   };
   windowWidth: number;
 }
