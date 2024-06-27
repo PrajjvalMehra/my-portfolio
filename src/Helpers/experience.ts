@@ -26,7 +26,7 @@ const experience = [
     {
         title: "Web Designer",
         company: "Extech",
-        date: "February 2021 - April 2021",
+        date: "January 2020 - April 2021",
         companyLink: "https://extechdigital.in/",
         description: [
             "Designing prototypes for websites ensuring that they are in line for clients using Figma and Adobe XD",
