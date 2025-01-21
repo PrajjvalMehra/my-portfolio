@@ -17,6 +17,12 @@ const projects = [
 
     },
     {
+        title: "2D Physics Engine",
+        description: "A simple physics engine to resolve collisions in 2D, showcased using air hockey simulation.",
+        techStack: ["React", "Javascript", "HTML", "CSS"],
+        repo: "https://github.com/PrajjvalMehra/BoringHockey",
+    },
+    {
         title: "Chat Application",
         description:
             "A chat web application with realtime one:one  and group messaging using Socket.io.",
